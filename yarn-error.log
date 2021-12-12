@@ -1,20 +1,20 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add -D prisma@3.5.0
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add validator
 
 PATH: 
-  C:\Users\adrian.drozman\Desktop\blog-app\node_modules\.bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\adrian.drozman\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Git\cmd;C:\Users\adrian.drozman\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\Yarn\bin;C:\Program Files\MongoDB\Server\4.4\bin;D:\Work\php;C:\Program Files\Amazon\AWSCLIV2;C:\Program Files\Java\jdk-15.0.1\bin;D:\vault;C:\Program Files\PuTTY;C:\Program Files\7-Zip;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\adrian.drozman\.windows-build-tools\python27;C:\Users\adrian.drozman\AppData\Local\Microsoft\WindowsApps;C:\Users\adrian.drozman\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\adrian.drozman\AppData\Roaming\npm;C:\Users\adrian.drozman\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\adrian.drozman\AppData\Local\Yarn\bin;C:\Users\adrian.drozman\AppData\Local\ComposerSetup\bin;C:\Users\adrian.drozman\AppData\Roaming\Composer\vendor\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\roman\bin;F:\dev\bin;C:\Python39\Scripts;C:\Python39;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\MongoDB\Server\4.2\bin;C:\flutter\bin;C:\Program Files (x86)\Java\jre1.8.0_251\bin;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Users\roman\Desktop\docgen\docgen.exe;C:\Program Files\PostgreSQL\12\bin;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Amazon\AWSCLIV2;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Users\roman\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\roman\AppData\Local\Programs\Python\Python38-32\Scripts;C:\Users\roman\AppData\Local\Programs\Python\Python38-32;C:\Users\roman\AppData\Local\Microsoft\WindowsApps;C:\Users\roman\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\roman\AppData\Roaming\Composer\vendor\bin;C:\Users\roman\AppData\Local\Yarn\bin;C:\Users\roman\.dotnet\tools;C:\Users\roman\AppData\Roaming\npm;C:\Users\roman\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.2.3\bin
 
 Yarn version: 
-  1.22.5
+  1.22.4
 
 Node version: 
-  12.22.0
+  16.13.0
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\adrian.drozman\Desktop\blog-app\node_modules\prisma\query_engine-windows.dll.node'
+  Error: EPERM: operation not permitted, unlink 'C:\Users\roman\Desktop\blog-app-graphql\node_modules\@prisma\engines\query_engine-windows.dll.node'
 
 npm manifest: 
   {
@@ -23,9 +23,10 @@ npm manifest:
     "main": "index.js",
     "license": "MIT",
     "dependencies": {
+      "@prisma/client": "3.5.0",
       "apollo-server": "^3.5.0",
       "graphql": "^16.0.1",
-      "prisma": "^3.5.0"
+      "prisma": "3.5.0"
     },
     "devDependencies": {
       "ts-node-dev": "^1.1.8",
@@ -114,6 +115,18 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/@josephg/resolvable/-/resolvable-1.0.1.tgz#69bc4db754d79e1a2f17a650d3466e038d94a5eb"
     integrity sha512-CtzORUwWTTOTqfVtHaKRJ0I1kNQd1bpn3sUh8I3nJDVY+5/M/Oe1DnEWzPQvqq/xPIIkzzzIP7mfCoAjFRvDhg==
+  
+  "@prisma/client@3.5.0":
+    version "3.5.0"
+    resolved "https://registry.yarnpkg.com/@prisma/client/-/client-3.5.0.tgz#bb0c9c10fd9912209f5bfd01c1683094d8fa9a2d"
+    integrity sha512-LuaaisknLe9CCfJ1Rtqe9b9knvPgEEcC77OMmWdo3fSanxl5oTDxcH3IIhpULQQlJfZvDcaEXuXNU4dsNF+q1w==
+    dependencies:
+      "@prisma/engines-version" "3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e"
+  
+  "@prisma/engines-version@3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e":
+    version "3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e"
+    resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e.tgz#254fdb80ae6db397ee1e638d12561f35d058e340"
+    integrity sha512-X16YmBmj7Omso4ZbkNBe6gPYlNcnwZMUPtXsguCkn+KoMqm3DJD9M4X31gx0Gf13Q44dY3SKPJZUk44/XUj/WA==
   
   "@prisma/engines@3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e":
     version "3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e"
@@ -953,7 +966,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.0.tgz#f1f061de8f6a4bf022892e2d128234fb98302972"
     integrity sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==
   
-  prisma@^3.5.0:
+  prisma@3.5.0:
     version "3.5.0"
     resolved "https://registry.yarnpkg.com/prisma/-/prisma-3.5.0.tgz#3717368d75568b370869a5b588f688bd41a14130"
     integrity sha512-WEYQ+H98O0yigG+lI0gfh4iyBChvnM6QTXPDtY9eFraLXAmyb6tf/T2mUdrUAU1AEvHLVzQA5A+RpONZlQozBg==
