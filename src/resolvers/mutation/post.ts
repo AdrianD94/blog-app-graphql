@@ -1,3 +1,4 @@
+import { canUserMutatePost } from "./../../utils/canUserMutatePost";
 import { Post, Prisma } from ".prisma/client";
 import { Context } from "../..";
 
@@ -16,7 +17,7 @@ export const postResolvers = {
     { post }: PostArgs,
     { prisma, userInfo }: Context
   ): Promise<PostPayloadType> => {
-    if(!userInfo){
+    if (!userInfo) {
       return {
         userErrors: [
           {
@@ -40,15 +41,31 @@ export const postResolvers = {
     return {
       userErrors: [],
       post: await prisma.post.create({
-        data: { title, content, authorId: 1 },
+        data: { title, content, authorId: userInfo.userId },
       }),
     };
   },
   postUpdate: async (
     _: any,
     { postId, post }: { postId: string; post: PostArgs["post"] },
-    { prisma }: Context
+    { prisma, userInfo }: Context
   ): Promise<PostPayloadType> => {
+    if (!userInfo) {
+      return {
+        userErrors: [
+          {
+            message: "Unauthorized",
+          },
+        ],
+        post: null,
+      };
+    }
+    const error = await canUserMutatePost({
+      userId: userInfo.userId,
+      postId: Number(postId),
+      prisma,
+    });
+    if (error) return error;
     const { title, content } = post;
     if (!title && !content) {
       return {
@@ -101,8 +118,24 @@ export const postResolvers = {
   postDelete: async (
     _: any,
     { postId }: { postId: string },
-    { prisma }: Context
+    { prisma, userInfo }: Context
   ): Promise<PostPayloadType> => {
+    if (!userInfo) {
+      return {
+        userErrors: [
+          {
+            message: "Unauthorized",
+          },
+        ],
+        post: null,
+      };
+    }
+    const error = await canUserMutatePost({
+      userId: userInfo.userId,
+      postId: Number(postId),
+      prisma,
+    });
+    if (error) return error;
     const existingPost = await prisma.post.findUnique({
       where: {
         id: Number(postId),
@@ -127,5 +160,5 @@ export const postResolvers = {
       userErrors: [],
       post: existingPost,
     };
-  }
-}
+  },
+};
