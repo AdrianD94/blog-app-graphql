@@ -12,6 +12,9 @@ export const Query = {
   },
   posts: async (_: any, __: any, { prisma }: Context) => {
     const posts: Post[] = await prisma.post.findMany({
+      where: {
+        published: true,
+      },
       orderBy: [
         {
           createdAt: "asc",
@@ -19,5 +22,12 @@ export const Query = {
       ],
     });
     return posts;
+  },
+  profile: async (_: any, { userId }: { userId: string }, { prisma }: Context) => {
+    return prisma.profile.findUnique({
+      where: {
+        userId: Number(userId)
+      }
+    })
   },
 };
